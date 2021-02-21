@@ -1,1 +1,42 @@
-@import 'components/variables';
+@use 'variables';
+
+.yellow-calc {
+    display: grid;
+    position: absolute;
+    top: 0;
+    grid: repeat(4, 70px) / repeat(3, 70px);
+    grid-template-areas: 
+    "lcd lcd lcd"
+    "onoff - -"
+    "copy - -"
+    "c - -"
+    ;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+
+    width: auto;
+    margin: 5px;
+    padding: 10px;
+    background-color: variables.$color-soft-yellow;
+    z-index: 1;
+}
+
+#lcd {
+    grid-area: lcd;
+
+}
+
+#button__on-off {
+    grid-area: onoff;
+}
+
+#button__copy {
+    grid-area: copy;
+}
+
+#button__c {
+    grid-area: c;
+}
