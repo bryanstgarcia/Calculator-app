@@ -1,7 +1,3 @@
-/* @import 'components/aqua-calc';
-@import 'components/purple-calc';
-@import 'components/yellow-calc';
-*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 .container {
@@ -15,32 +11,36 @@
 }
 
 .calculator {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 40%;
-  height: 40vh;
+  position: relative;  */
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid: 100%/100%;
+  grid-template-areas: "calc";
+  width: 400px;
+  max-width: 600px;
+  height: 380px;
 }
 
 .purple-calc {
+  grid-area: calc;
+  align-self: end;
+  justify-self: center;
   display: grid;
   grid: repeat(4, 60px)/repeat(3, 60px);
   align-items: center;
   justify-items: center;
   justify-content: center;
   width: auto;
-  margin: 5px;
+  margin: 5px 5px 25px 5px;
   padding: 10px;
   background-color: #724AE4;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   z-index: 3;
-}
-
-#button__0 {
-  grid-column: 1/3;
-  width: 90%;
 }
 
 .purple-calc__button {
@@ -59,24 +59,43 @@
 }
 
 .yellow-calc {
+  grid-area: calc;
+  align-self: start;
+  justify-self: start;
   display: grid;
-  position: absolute;
-  top: 0;
-  grid: repeat(4, 70px)/repeat(3, 70px);
+  grid: repeat(4, 70px)/70px repeat(2, 50px);
   grid-template-areas: "lcd lcd lcd" "onoff - -" "copy - -" "c - -";
-  column-gap: 10px;
-  row-gap: 10px;
+  column-gap: 15px;
+  row-gap: 15px;
   align-items: center;
-  justify-items: center;
+  justify-items: start;
   justify-content: center;
   width: auto;
   margin: 5px;
-  padding: 10px;
+  padding: 15px 10px 20px 15px;
+  z-index: 2;
   background-color: #F9DB72;
-  z-index: 1;
+  border-radius: 25px 0px 0px 25px;
+}
+
+.yellow-calc__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: #E0B51B;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
 }
 
 #lcd {
+  width: 90%;
+  height: 70%;
   grid-area: lcd;
 }
 
@@ -90,6 +109,63 @@
 
 #button__c {
   grid-area: c;
+}
+
+.aqua-calc {
+  grid-area: calc;
+  align-self: center;
+  justify-self: end;
+  display: grid;
+  grid: repeat(4, 70px)/repeat(2, 70px);
+  grid-template-areas: "exp plus" "- less" "- multi" "- div";
+  column-gap: 15px;
+  row-gap: 15px;
+  align-items: center;
+  justify-items: end;
+  justify-content: center;
+  z-index: 2;
+  /* CAMBIAR A 1 AL FINALIZAR */
+  width: auto;
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 15px 15px 20px 10px;
+  background-color: #5DDE91;
+  border-radius: 0px 25px 25px 0px;
+}
+
+#button__exponent {
+  grid-area: exp;
+}
+
+#button__add {
+  grid-area: plus;
+}
+
+#button__substract {
+  grid-area: less;
+}
+
+#button__multiply {
+  grid-area: multi;
+}
+
+#button__divide {
+  grid-area: div;
+}
+
+.aqua-calc__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: #4BA66F;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
 }
 
 :root {
