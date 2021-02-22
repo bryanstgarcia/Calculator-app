@@ -13,11 +13,17 @@
 }
 
 .calculator {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    
-    width: 40%;
-    height: 40vh;
+    position: relative;  */
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid: 100% / 100%;
+    grid-template-areas: 'calc';
+    width: 400px;
+    max-width: 600px;
+    height: 380px;
 }
