@@ -1,42 +1,61 @@
 @use 'variables';
 
 .yellow-calc {
+
+    grid-area: calc;
+    align-self: start;
+    justify-self: start;
+
     display: grid;
-    position: absolute;
-    top: 0;
-    grid: repeat(4, 70px) / repeat(3, 70px);
+    grid: repeat(4, 70px) / 70px repeat(2, 50px);
     grid-template-areas: 
     "lcd lcd lcd"
     "onoff - -"
     "copy - -"
     "c - -"
     ;
-    column-gap: 10px;
-    row-gap: 10px;
+    column-gap: 15px;
+    row-gap: 15px;
     align-items: center;
-    justify-items: center;
+    justify-items: start;
     justify-content: center;
 
     width: auto;
     margin: 5px;
-    padding: 10px;
+    padding: 15px 10px 20px 15px;
+    z-index: 2;
+
     background-color: variables.$color-soft-yellow;
-    z-index: 1;
+    border-radius: 25px 0px 0px 25px;
 }
 
-#lcd {
-    grid-area: lcd;
 
+.yellow-calc__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 90%;
+    height: 90%;
+    
+    background-color: variables.$color-yellow ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+    font-family: variables.$font-p;
+    font-size: 20px;
+    font-weight: 500;
+    color: variables.$color-white;
 }
 
-#button__on-off {
-    grid-area: onoff;
+#lcd { 
+    width: 90%;
+    height: 70%;
+    grid-area: lcd; 
 }
 
-#button__copy {
-    grid-area: copy;
-}
+#button__on-off { grid-area: onoff; }
 
-#button__c {
-    grid-area: c;
-}
+#button__copy { grid-area: copy; }
+
+#button__c { grid-area: c; }
