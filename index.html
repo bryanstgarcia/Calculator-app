@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/sass/styles.scss">
 
 </head>
 <body>
@@ -17,7 +17,7 @@
             <div class="calculator">
                 <div class="yellow-calc">
                     <div class="yellow-calc__button" id="lcd" >
-                        <span id="lcd-numbers">0</span>
+                        <span id="lcd-numbers" data-value="I'm the lcd numbers" >0</span>
                     </div>
                     <div class="yellow-calc__button" id="button__on-off">
                         <span id="">on<br>off</span>
@@ -30,41 +30,41 @@
                     </div>
                 </div>
                 <div class="purple-calc">
-                    <div class="purple-calc__button" id="button__1">
-                        <span class="purple-calc__button--number" id="">1</span>
+                    <div class="purple-calc__button" id="button__1" data-value="1">
+                        <span class="purple-calc__button--number" id="n1">1</span>
                     </div>
-                    <div class="purple-calc__button" id="button__2">
-                        <span class="purple-calc__button--number" id="">2</span>
+                    <div class="purple-calc__button" id="button__2" data-value="2">
+                        <span class="purple-calc__button--number" id="n2">2</span>
                     </div>
-                    <div class="purple-calc__button" id="button__3">
-                        <span class="purple-calc__button--number" id="">3</span>
+                    <div class="purple-calc__button" id="button__3" data-value="3">
+                        <span class="purple-calc__button--number" id="n3">3</span>
                     </div>
-                    <div class="purple-calc__button" id="button__4">
-                        <span class="purple-calc__button--number" id="">4</span>
+                    <div class="purple-calc__button" id="button__4" data-value="4">
+                        <span class="purple-calc__button--number" id="n4">4</span>
                     </div>
-                    <div class="purple-calc__button" id="button__5">
-                        <span class="purple-calc__button--number" id="">5</span>
+                    <div class="purple-calc__button" id="button__5" data-value="5">
+                        <span class="purple-calc__button--number" id="n5">5</span>
                     </div>
-                    <div class="purple-calc__button" id="button__6">
-                        <span class="purple-calc__button--number" id="">6</span>
+                    <div class="purple-calc__button" id="button__6" data-value="6">
+                        <span class="purple-calc__button--number" id="n6">6</span>
                     </div>
-                    <div class="purple-calc__button" id="button__7">
-                        <span class="purple-calc__button--number" id="">7</span>
+                    <div class="purple-calc__button" id="button__7" data-value="7">
+                        <span class="purple-calc__button--number" id="n7">7</span>
                     </div>
-                    <div class="purple-calc__button" id="button__8">
-                        <span class="purple-calc__button--number" id="">8</span>
+                    <div class="purple-calc__button" id="button__8" data-value="8">
+                        <span class="purple-calc__button--number" id="n8">8</span>
                     </div>
-                    <div class="purple-calc__button" id="button__9">
-                        <span class="purple-calc__button--number" id="">9</span>
+                    <div class="purple-calc__button" id="button__9" data-value="9">
+                        <span class="purple-calc__button--number" id="n9">9</span>
                     </div>
-                    <div class="purple-calc__button" id="button__dot">
-                        <span class="purple-calc__button--number" id="">.</span>
+                    <div class="purple-calc__button" id="button__dot" data-value=".">
+                        <span class="purple-calc__button--number" id="dot">.</span>
                     </div>
-                    <div class="purple-calc__button" id="button__0">
-                        <span class="purple-calc__button--number" id="">0</span>
+                    <div class="purple-calc__button" id="button__0" data-value="0">
+                        <span class="purple-calc__button--number" id="n0">0</span>
                     </div>
-                    <div class="purple-calc__button" id="button__equal">
-                        <span class="purple-calc__button--number" id="">=</span>
+                    <div class="purple-calc__button" id="button__equal" data-value="=">
+                        <span class="purple-calc__button--number" id="equal">=</span>
                     </div>
                 </div>
                 <div class="aqua-calc">
@@ -81,7 +81,7 @@
                         <span class="aqua-calc__button--symbol">x</span>
                     </div>
                     <div class="aqua-calc__button" id="button__divide">
-                        <span class="aqua-calc__button--symbol">÷</span>
+                        <span class="aqua-calc__button--symbol">/</span>
                     </div>
                 </div>
             </div>
@@ -106,8 +106,6 @@
         </div>
     </footer>
 
-
-
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
