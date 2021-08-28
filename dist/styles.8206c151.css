@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 87vh;
+  margin: 0;
+  padding: 0;
+}
+
+.calculator {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;  */
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid: 100%/100%;
+  grid-template-areas: "calc";
+  width: 400px;
+  max-width: 600px;
+  height: 380px;
+}
+
+.purple-calc {
+  grid-area: calc;
+  align-self: end;
+  justify-self: center;
+  display: grid;
+  grid: repeat(4, 60px)/repeat(3, 60px);
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 5px 5px 25px 5px;
+  padding: 10px;
+  background-color: #724AE4;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+.purple-calc__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  background-color: #9D83E8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.yellow-calc {
+  grid-area: calc;
+  align-self: start;
+  justify-self: start;
+  display: grid;
+  grid: repeat(4, 70px)/70px repeat(2, 50px);
+  grid-template-areas: "lcd lcd lcd" "onoff - -" "copy - -" "c - -";
+  column-gap: 15px;
+  row-gap: 15px;
+  align-items: center;
+  justify-items: start;
+  justify-content: center;
+  width: auto;
+  margin: 5px;
+  padding: 15px 10px 20px 15px;
+  z-index: 2;
+  background-color: #F9DB72;
+  border-radius: 25px 0px 0px 25px;
+}
+
+.yellow-calc__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: #E0B51B;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+#lcd {
+  width: 85%;
+  height: 70%;
+  grid-area: lcd;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+#button__on-off {
+  grid-area: onoff;
+}
+
+#button__copy {
+  grid-area: copy;
+}
+
+#button__c {
+  grid-area: c;
+}
+
+.aqua-calc {
+  grid-area: calc;
+  align-self: center;
+  justify-self: end;
+  display: grid;
+  grid: repeat(4, 70px)/repeat(2, 70px);
+  grid-template-areas: "exp plus" "- less" "- multi" "- div";
+  column-gap: 15px;
+  row-gap: 15px;
+  align-items: center;
+  justify-items: end;
+  justify-content: center;
+  z-index: 2;
+  /* CAMBIAR A 1 AL FINALIZAR */
+  width: auto;
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 15px 15px 20px 10px;
+  background-color: #5DDE91;
+  border-radius: 0px 25px 25px 0px;
+}
+
+#button__exponent {
+  grid-area: exp;
+}
+
+#button__add {
+  grid-area: plus;
+}
+
+#button__substract {
+  grid-area: less;
+}
+
+#button__multiply {
+  grid-area: multi;
+}
+
+#button__divide {
+  grid-area: div;
+}
+
+.aqua-calc__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: #4BA66F;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #33A09A;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 5vh;
+}
+header h1 {
+  position: absolute;
+  display: inline;
+  left: auto;
+  right: 15px;
+  top: 0;
+  padding: 5px 10px 5px 5px;
+  border: 2px solid #FFF;
+  border-bottom: 5px solid #FFF;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+footer {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  width: 30%;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
+
+.social-media__button {
+  padding: 4px;
+}
+.social-media__button a img {
+  width: 20px;
+  height: 20px;
+}
+
+#social-media__button--p {
+  font-size: 11px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 200;
+  width: auto;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=/styles.8206c151.css.map */
