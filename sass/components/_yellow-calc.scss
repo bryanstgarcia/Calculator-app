@@ -1,4 +1,4 @@
-@use 'variables';
+@import 'variables';
 
 .yellow-calc {
 
@@ -25,7 +25,7 @@
     padding: 15px 10px 20px 15px;
     z-index: 2;
 
-    background-color: variables.$color-soft-yellow;
+    background-color: $color-soft-yellow;
     border-radius: 25px 0px 0px 25px;
 }
 
@@ -38,20 +38,23 @@
     width: 90%;
     height: 90%;
     
-    background-color: variables.$color-yellow ;
+    background-color: $color-yellow ;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     
-    font-family: variables.$font-p;
+    font-family: $font-p;
     font-size: 20px;
     font-weight: 500;
-    color: variables.$color-white;
+    color: $color-white;
 }
 
 #lcd { 
-    width: 90%;
+    width: 85%;
     height: 70%;
     grid-area: lcd; 
+    justify-content: flex-end;
+    padding-right: 1rem;
+    
 }
 
 #button__on-off { grid-area: onoff; }
