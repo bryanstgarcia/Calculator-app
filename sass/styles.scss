@@ -1,8 +1,8 @@
-@use 'components/variables';
-@use 'components/calc-container';
-@use 'components/purple-calc';
-@use 'components/yellow-calc';
-@use 'components/aqua-calc';
+@import 'components/variables';
+@import 'components/calc-container';
+@import 'components/purple-calc';
+@import 'components/yellow-calc';
+@import 'components/aqua-calc';
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -18,8 +18,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: variables.$font-p;
-    background-color: variables.$color-blue;
+    font-family: $font-p;
+    background-color: $color-blue;
 }
 
 header {
@@ -39,10 +39,10 @@ header {
         border: 2px solid #FFF;
         border-bottom: 5px solid #FFF;
         
-        font-family: variables.$font-title;
+        font-family: $font-title;
         font-size: 15px;
         font-weight: 500;
-        color: variables.$color-white;
+        color: $color-white;
     }
 }
 
@@ -77,10 +77,10 @@ footer {
 
 #social-media__button--p {
     font-size: 11px;
-    font-family: variables.$font-title;
+    font-family: $font-title;
     text-align: center;
     font-weight: 200;
     width: auto;
     margin: 0;
-    color: variables.$color-white;
+    color: $color-white;
 }
