@@ -1,29 +1,10 @@
-let equal = {
-    element: document.querySelector('#button__equal'),
-    value: function () {
-        return this.element.getAttribute('data-value')
-    },
-    addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
-    }
-}
-let dot = {
-    element: document.querySelector('#button__dot'),
-    value: function () {
-        return this.element.getAttribute('data-value')
-    },
-    addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
-    }
-}
-
 let numberOne = {
     element: document.querySelector('#button__1'),
     value: function () {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberTwo = {
@@ -32,7 +13,7 @@ let numberTwo = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberThree = {
@@ -41,7 +22,7 @@ let numberThree = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberFour = {
@@ -50,7 +31,7 @@ let numberFour = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberFive = {
@@ -59,7 +40,7 @@ let numberFive = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberSix = {
@@ -68,7 +49,7 @@ let numberSix = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberSeven = {
@@ -77,7 +58,7 @@ let numberSeven = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberEight = {
@@ -86,7 +67,7 @@ let numberEight = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberNine = {
@@ -95,7 +76,7 @@ let numberNine = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
 let numberCero = {
@@ -104,25 +85,116 @@ let numberCero = {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
-        return this.element.addEventListener('click', addLCD)
+        return this.element.addEventListener('click', addNumberLCD)
     }
 }
+let dot = {
+    
+    element: document.querySelector('#button__dot'),
+    value: function () {
+        return this.element.getAttribute('data-value')
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', addNumberLCD)
+    }
+}
+let equal = {
 
+    element: document.querySelector('#button__equal'),
+    value: function () {
+        return this.element.getAttribute('data-value')
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleOperation)
+    }
+}
+let sum = {
+
+    element: document.querySelector('#button__sum'),
+    value: function () {
+        return this.element.innerHTML;
+    },
+    calc: function (valueOne, valueTwo) {
+        return parseInt(valueOne) + parseInt(valueTwo);
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleOperation)
+    }
+}
+let subtraction = {
+
+    element: document.querySelector('#button__substract'),
+    value: function () {
+        return this.element.innerHTML;
+    },
+    calc: function (valueOne, valueTwo) {
+        return parseInt(valueOne) - parseInt(valueTwo);
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleOperation)
+    }
+}
+let multiply = {
+
+    element: document.querySelector('#button__multiply'),
+    value: function () {
+        return this.element.innerHTML;
+    },
+    calc: function (valueOne, valueTwo) {
+        return parseInt(valueOne) * parseInt(valueTwo);
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleOperation)
+    }
+}
+let divide = {
+    element: document.querySelector('#button__divide'),
+    value: function () {
+        return this.element.innerHTML;
+    },
+    calc: function (valueOne, valueTwo) {
+        return parseInt(valueOne) / parseInt(valueTwo);
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleOperation)
+    }
+}
+let exponential = {
+    element: document.querySelector('#button__exponent'),
+    value: function () {
+        return this.element.innerHTML;
+    },
+    calc: function (valueOne, valueTwo) {
+        return Math.pow(valueOne, valueTwo);
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleOperation)
+    }
+
+}
+let lcd = document.querySelector('#lcd');
 let lcdTotal = []
 let lcdValues = []
-let lcd = document.querySelector('#lcd');
 let lcdValue = []
 let numbers = [numberOne, numberTwo, numberThree, numberFour, numberFive, numberSix, numberSeven, numberEight, numberNine, numberCero]
+let operations = [sum, subtraction, multiply, divide, exponential, equal]
 
 function handleLCD(event) {
     return;
 }
 
-function addLCD(event) {
+function addNumberLCD(event) {
+    //Add a number to the lcd
     let numberValue;
-    if (event.target.id.includes("button")) {
-        boxValue = numbers.find((number) => event.target.id.includes(number.value()))
-        numberValue = boxValue.value();
+    if (event.target.id === "button__dot" || event.target.id === "dot") {
+        if (lcdValue.length > 0 ) {
+            numberValue = "."
+        } else {
+            numberValue = "0."
+        }          
+    } else if (event.target.id.includes("button")) {
+        let valueToAdd = numbers.find((number) => event.target.id.includes(number.value()))
+        numberValue = valueToAdd.value();
     } else if (event.target.id.includes('n')) {
         numberValue = event.target.innerHTML; 
     }
@@ -130,33 +202,18 @@ function addLCD(event) {
     lcdValue.push(numberValue)
     lcd.innerText = lcdValue.join("");
 }
-function operation(valueOne, valueTwo, operationSymbol) {
-    //Takes two values and apply the operationSymbol to make an operation and return the result.
-     return;
+function handleOperation(event) {
+    //Add the operation method to the 
+    console.log('Hi, Im the operation symbol')
 }
-function sum(values) {
-    //Sum two values added into lcdValues
-    return;
-}
-function subtraction (values) {
-    // Substrac two values added into lcdValues
-    return;
-}
-
-function division (values) {
-    //Divide two values added into lcdValues 
-    return;
-}
-function multiply(values) {
-    //multiply two values added into lcdValues
-    return;
-}
-
 function addListeners() {
     for (let number of numbers) {
         number.addListener()
     }
-    equal.addListener();
+    for (let operation of operations) {
+        operation.addListener()
+    }
+
     dot.addListener();
 }
 
