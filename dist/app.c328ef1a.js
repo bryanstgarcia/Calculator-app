@@ -124,31 +124,13 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-var equal = {
-  element: document.querySelector('#button__equal'),
-  value: function value() {
-    return this.element.getAttribute('data-value');
-  },
-  addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
-  }
-};
-var dot = {
-  element: document.querySelector('#button__dot'),
-  value: function value() {
-    return this.element.getAttribute('data-value');
-  },
-  addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
-  }
-};
 var numberOne = {
   element: document.querySelector('#button__1'),
   value: function value() {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberTwo = {
@@ -157,7 +139,7 @@ var numberTwo = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberThree = {
@@ -166,7 +148,7 @@ var numberThree = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberFour = {
@@ -175,7 +157,7 @@ var numberFour = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberFive = {
@@ -184,7 +166,7 @@ var numberFive = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberSix = {
@@ -193,7 +175,7 @@ var numberSix = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberSeven = {
@@ -202,7 +184,7 @@ var numberSeven = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberEight = {
@@ -211,7 +193,7 @@ var numberEight = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberNine = {
@@ -220,7 +202,7 @@ var numberNine = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
 var numberCero = {
@@ -229,27 +211,113 @@ var numberCero = {
     return this.element.getAttribute('data-value');
   },
   addListener: function addListener() {
-    return this.element.addEventListener('click', addLCD);
+    return this.element.addEventListener('click', addNumberLCD);
   }
 };
+var dot = {
+  element: document.querySelector('#button__dot'),
+  value: function value() {
+    return this.element.getAttribute('data-value');
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', addNumberLCD);
+  }
+};
+var equal = {
+  element: document.querySelector('#button__equal'),
+  value: function value() {
+    return this.element.getAttribute('data-value');
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleOperation);
+  }
+};
+var sum = {
+  element: document.querySelector('#button__sum'),
+  value: function value() {
+    return this.element.innerHTML;
+  },
+  calc: function calc(valueOne, valueTwo) {
+    return parseInt(valueOne) + parseInt(valueTwo);
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleOperation);
+  }
+};
+var subtraction = {
+  element: document.querySelector('#button__substract'),
+  value: function value() {
+    return this.element.innerHTML;
+  },
+  calc: function calc(valueOne, valueTwo) {
+    return parseInt(valueOne) - parseInt(valueTwo);
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleOperation);
+  }
+};
+var multiply = {
+  element: document.querySelector('#button__multiply'),
+  value: function value() {
+    return this.element.innerHTML;
+  },
+  calc: function calc(valueOne, valueTwo) {
+    return parseInt(valueOne) * parseInt(valueTwo);
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleOperation);
+  }
+};
+var divide = {
+  element: document.querySelector('#button__divide'),
+  value: function value() {
+    return this.element.innerHTML;
+  },
+  calc: function calc(valueOne, valueTwo) {
+    return parseInt(valueOne) / parseInt(valueTwo);
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleOperation);
+  }
+};
+var exponential = {
+  element: document.querySelector('#button__exponent'),
+  value: function value() {
+    return this.element.innerHTML;
+  },
+  calc: function calc(valueOne, valueTwo) {
+    return Math.pow(valueOne, valueTwo);
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleOperation);
+  }
+};
+var lcd = document.querySelector('#lcd');
 var lcdTotal = [];
 var lcdValues = [];
-var lcd = document.querySelector('#lcd');
 var lcdValue = [];
 var numbers = [numberOne, numberTwo, numberThree, numberFour, numberFive, numberSix, numberSeven, numberEight, numberNine, numberCero];
+var operations = [sum, subtraction, multiply, divide, exponential, equal];
 
 function handleLCD(event) {
   return;
 }
 
-function addLCD(event) {
+function addNumberLCD(event) {
+  //Add a number to the lcd
   var numberValue;
 
-  if (event.target.id.includes("button")) {
-    boxValue = numbers.find(function (number) {
+  if (event.target.id === "button__dot" || event.target.id === "dot") {
+    if (lcdValue.length > 0) {
+      numberValue = ".";
+    } else {
+      numberValue = "0.";
+    }
+  } else if (event.target.id.includes("button")) {
+    var valueToAdd = numbers.find(function (number) {
       return event.target.id.includes(number.value());
     });
-    numberValue = boxValue.value();
+    numberValue = valueToAdd.value();
   } else if (event.target.id.includes('n')) {
     numberValue = event.target.innerHTML;
   }
@@ -258,29 +326,9 @@ function addLCD(event) {
   lcd.innerText = lcdValue.join("");
 }
 
-function operation(valueOne, valueTwo, operationSymbol) {
-  //Takes two values and apply the operationSymbol to make an operation and return the result.
-  return;
-}
-
-function sum(values) {
-  //Sum two values added into lcdValues
-  return;
-}
-
-function subtraction(values) {
-  // Substrac two values added into lcdValues
-  return;
-}
-
-function division(values) {
-  //Divide two values added into lcdValues 
-  return;
-}
-
-function multiply(values) {
-  //multiply two values added into lcdValues
-  return;
+function handleOperation(event) {
+  //Add the operation method to the 
+  console.log('Hi, Im the operation symbol');
 }
 
 function addListeners() {
@@ -298,7 +346,20 @@ function addListeners() {
     _iterator.f();
   }
 
-  equal.addListener();
+  var _iterator2 = _createForOfIteratorHelper(operations),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var operation = _step2.value;
+      operation.addListener();
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
   dot.addListener();
 }
 
@@ -334,7 +395,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64820" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55797" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
