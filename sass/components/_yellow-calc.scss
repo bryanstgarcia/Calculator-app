@@ -46,15 +46,20 @@
     font-size: 20px;
     font-weight: 500;
     color: $color-white;
+    cursor: pointer;
 }
 
 #lcd { 
     width: 85%;
     height: 70%;
     grid-area: lcd; 
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-right: 1rem;
     
+}
+#lcd-symbol {
+    padding-left: 1rem;
+    padding-right: 0.3rem;
 }
 
 #button__on-off { grid-area: onoff; }

@@ -31,7 +31,7 @@
 
 #button__exponent { grid-area: exp; }
 #button__add { grid-area: plus; }
-#button__substract { grid-area: less; }
+#button__subtraction { grid-area: less; }
 #button__multiply { grid-area: multi; }
 #button__divide { grid-area: div; }
 
@@ -51,4 +51,6 @@
     font-size: 20px;
     font-weight: 500;
     color: variables.$color-white;
+
+    cursor: pointer;
 }
