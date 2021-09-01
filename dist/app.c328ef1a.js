@@ -133,6 +133,9 @@ var numberOne = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberTwo = {
@@ -142,6 +145,9 @@ var numberTwo = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberThree = {
@@ -151,6 +157,9 @@ var numberThree = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberFour = {
@@ -160,6 +169,9 @@ var numberFour = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberFive = {
@@ -169,6 +181,9 @@ var numberFive = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberSix = {
@@ -178,6 +193,9 @@ var numberSix = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberSeven = {
@@ -187,6 +205,9 @@ var numberSeven = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberEight = {
@@ -196,6 +217,9 @@ var numberEight = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberNine = {
@@ -205,6 +229,9 @@ var numberNine = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var numberCero = {
@@ -214,6 +241,9 @@ var numberCero = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var dot = {
@@ -223,6 +253,9 @@ var dot = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', addNumberLCD);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', addNumberLCD);
   }
 };
 var equal = {
@@ -232,6 +265,9 @@ var equal = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', handleOperation);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleOperation);
   }
 };
 var sum = {
@@ -240,10 +276,13 @@ var sum = {
     return this.element.innerHTML;
   },
   calc: function calc(valueOne, valueTwo) {
-    return parseInt(valueOne) + parseInt(valueTwo);
+    return parseFloat(valueOne) + parseFloat(valueTwo);
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', handleOperation);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleOperation);
   }
 };
 var subtraction = {
@@ -252,10 +291,13 @@ var subtraction = {
     return this.element.innerHTML;
   },
   calc: function calc(valueOne, valueTwo) {
-    return parseInt(valueOne) - parseInt(valueTwo);
+    return parseFloat(valueOne) - parseFloat(valueTwo);
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', handleOperation);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleOperation);
   }
 };
 var multiply = {
@@ -264,10 +306,13 @@ var multiply = {
     return this.element.innerHTML;
   },
   calc: function calc(valueOne, valueTwo) {
-    return parseInt(valueOne) * parseInt(valueTwo);
+    return parseFloat(valueOne) * parseFloat(valueTwo);
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', handleOperation);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleOperation);
   }
 };
 var divide = {
@@ -276,10 +321,13 @@ var divide = {
     return this.element.innerHTML;
   },
   calc: function calc(valueOne, valueTwo) {
-    return parseInt(valueOne) / parseInt(valueTwo);
+    return parseFloat(valueOne) / parseFloat(valueTwo);
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', handleOperation);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleOperation);
   }
 };
 var exponential = {
@@ -292,6 +340,21 @@ var exponential = {
   },
   addListener: function addListener() {
     return this.element.addEventListener('click', handleOperation);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleOperation);
+  }
+};
+var clear = {
+  element: document.querySelector('#button__c'),
+  value: function value() {
+    return this.element.innerHTML;
+  },
+  addListener: function addListener() {
+    return this.element.addEventListener('click', handleClear);
+  },
+  removeListener: function removeListener() {
+    return this.element.removeEventListener('click', handleClear);
   }
 };
 var lcd = {
@@ -343,59 +406,148 @@ function handleOperation(event) {
   var symbolObject = symbol.getAttribute('data-value');
   var operationObject = operations.find(function (operation) {
     return operation.value().includes(symbolObject);
-  });
-  lcd.symbol.innerHTML = operationObject.value();
+  }); //Add the symbol to lcd
 
-  if (lcd.symbol !== "") {}
+  if (lcd.symbol.innerHTML != "") {
+    //Add actual value to values
+    lcd.values.push(lcd.value.join(""));
+    var actualSymbol = lcd.symbol.innerHTML; //Find actual opertaion 
 
-  if (lcd.value == "") {
-    return;
+    var actualOperation = operations.find(function (operation) {
+      return operation.value().includes(actualSymbol);
+    });
+    console.log('operacion actual a hacer ' + actualOperation); //Make a calculation
+
+    var calculation = actualOperation.calc(lcd.values[0], lcd.values[1]);
+    console.log('resultado del calculo ' + calculation); //Clear actual values
+
+    lcd.values = [];
+    lcd.value = []; //Add new calc value
+
+    lcd.values.push(calculation); //Add to lcd
+
+    lcd.numbers.innerText = calculation;
+    lcd.symbol.innerText = "";
+    lcd.symbol.innerHTML = operationObject.value();
   } else {
-    //Add to number to values 
-    lcd.values.push(lcd.value.join("")); //Clear lcd.value
+    //Add the operation symbol
+    lcd.symbol.innerHTML = operationObject.value();
 
-    lcd.value = [];
+    if (lcd.value == "") {
+      return;
+    } else {
+      //Add number to values 
+      lcd.values.push(lcd.value.join("")); //Clear lcd.value
+
+      lcd.value = [];
+    }
   }
 
   console.log(lcd.values, lcd.value);
   console.log(_typeof(lcd.value));
 }
 
-function addListeners() {
-  var _iterator = _createForOfIteratorHelper(numbers),
-      _step;
+function handleListeners(type) {
+  if (type == 'add') {
+    var _iterator = _createForOfIteratorHelper(numbers),
+        _step;
 
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var number = _step.value;
-      number.addListener();
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var number = _step.value;
+        number.addListener();
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
     }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
 
-  var _iterator2 = _createForOfIteratorHelper(operations),
-      _step2;
+    var _iterator2 = _createForOfIteratorHelper(operations),
+        _step2;
 
-  try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var operation = _step2.value;
-      operation.addListener();
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var operation = _step2.value;
+        operation.addListener();
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
     }
-  } catch (err) {
-    _iterator2.e(err);
-  } finally {
-    _iterator2.f();
-  }
 
-  dot.addListener();
+    dot.addListener();
+    clear.addListener();
+  } else if (type == 'remove') {
+    var _iterator3 = _createForOfIteratorHelper(numbers),
+        _step3;
+
+    try {
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var _number = _step3.value;
+
+        _number.removeListener();
+      }
+    } catch (err) {
+      _iterator3.e(err);
+    } finally {
+      _iterator3.f();
+    }
+
+    var _iterator4 = _createForOfIteratorHelper(operations),
+        _step4;
+
+    try {
+      for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+        var _operation = _step4.value;
+
+        _operation.removeListener();
+      }
+    } catch (err) {
+      _iterator4.e(err);
+    } finally {
+      _iterator4.f();
+    }
+
+    dot.removeListener();
+    clear.removeListener();
+  }
+} //Delete values
+
+
+function handleClear() {
+  lcd.numbers.innerText = '0';
+  lcd.value = [];
+  lcd.values = [];
+  lcd.total = [];
+  lcd.symbol.innerText = '';
+} //On-Off
+
+
+var on = false;
+var onOffButton = document.querySelector('#button__on-off');
+
+function onOff() {
+  if (on == false) {
+    on = true;
+    lcd.numbers.innerText = '0';
+    handleListeners('add');
+  } else {
+    on = false;
+    handleClear();
+    lcd.numbers.innerText = 'OFF';
+    handleListeners('remove');
+  }
 }
 
 window.onload = function () {
   //Purple calc
-  addListeners();
+  if (on == false) {
+    lcd.numbers.innerText = 'OFF';
+  }
+
+  onOffButton.addEventListener('click', onOff);
 };
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -425,7 +577,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52055" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56055" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
