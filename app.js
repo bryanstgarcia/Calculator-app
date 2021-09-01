@@ -5,6 +5,9 @@ let numberOne = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberTwo = {
@@ -14,6 +17,9 @@ let numberTwo = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberThree = {
@@ -23,6 +29,9 @@ let numberThree = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberFour = {
@@ -32,6 +41,9 @@ let numberFour = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberFive = {
@@ -41,6 +53,9 @@ let numberFive = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberSix = {
@@ -50,6 +65,9 @@ let numberSix = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberSeven = {
@@ -59,6 +77,9 @@ let numberSeven = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberEight = {
@@ -68,6 +89,9 @@ let numberEight = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberNine = {
@@ -77,6 +101,9 @@ let numberNine = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let numberCero = {
@@ -86,6 +113,9 @@ let numberCero = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
 }
 let dot = {
@@ -96,16 +126,22 @@ let dot = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', addNumberLCD)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', addNumberLCD)
     }
+
 }
 let equal = {
-
     element: document.querySelector('#button__equal'),
     value: function () {
         return this.element.getAttribute('data-value')
     },
     addListener:  function () {
         return this.element.addEventListener('click', handleOperation)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleOperation)
     }
 }
 let sum = {
@@ -115,10 +151,13 @@ let sum = {
         return this.element.innerHTML;
     },
     calc: function (valueOne, valueTwo) {
-        return parseInt(valueOne) + parseInt(valueTwo);
+        return parseFloat(valueOne) + parseFloat(valueTwo);
     },
     addListener:  function () {
         return this.element.addEventListener('click', handleOperation)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleOperation)
     }
 }
 let subtraction = {
@@ -128,10 +167,13 @@ let subtraction = {
         return this.element.innerHTML;
     },
     calc: function (valueOne, valueTwo) {
-        return parseInt(valueOne) - parseInt(valueTwo);
+        return parseFloat(valueOne) - parseFloat(valueTwo);
     },
     addListener:  function () {
         return this.element.addEventListener('click', handleOperation)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleOperation)
     }
 }
 let multiply = {
@@ -141,10 +183,13 @@ let multiply = {
         return this.element.innerHTML;
     },
     calc: function (valueOne, valueTwo) {
-        return parseInt(valueOne) * parseInt(valueTwo);
+        return parseFloat(valueOne) * parseFloat(valueTwo);
     },
     addListener:  function () {
         return this.element.addEventListener('click', handleOperation)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleOperation)
     }
 }
 let divide = {
@@ -153,10 +198,13 @@ let divide = {
         return this.element.innerHTML;
     },
     calc: function (valueOne, valueTwo) {
-        return parseInt(valueOne) / parseInt(valueTwo);
+        return parseFloat(valueOne) / parseFloat(valueTwo);
     },
     addListener:  function () {
         return this.element.addEventListener('click', handleOperation)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleOperation)
     }
 }
 let exponential = {
@@ -169,6 +217,22 @@ let exponential = {
     },
     addListener:  function () {
         return this.element.addEventListener('click', handleOperation)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleOperation)
+    }
+
+}
+let clear = {
+    element: document.querySelector('#button__c'),
+    value: function () {
+        return this.element.innerHTML;
+    },
+    addListener:  function () {
+        return this.element.addEventListener('click', handleClear)
+    },
+    removeListener: function () {
+        return this.element.removeEventListener('click', handleClear)
     }
 
 }
@@ -177,7 +241,7 @@ let lcd = {
     value: [],
     values: [],
     total:[],
-    symbol: document.querySelector('#lcd-symbol'),
+    symbol: document.querySelector('#lcd-symbol')
 }
 //let lcdNumbers = document.querySelector('#lcd-numbers');
 //let lcdSymbol = document.querySelector('#lcd-symbol')
@@ -215,37 +279,100 @@ function handleOperation(event) {
     const symbol = document.querySelector(`#${event.target.id}`);
     const symbolObject = symbol.getAttribute('data-value')
     let operationObject = operations.find(operation => operation.value().includes(symbolObject))
+    //Add the symbol to lcd
     
-    lcd.symbol.innerHTML = operationObject.value()
-    if (lcd.symbol !== "") {
+    
+    if (lcd.symbol.innerHTML != "") {
+        //Add actual value to values
+        lcd.values.push(lcd.value.join(""));
+        let actualSymbol = lcd.symbol.innerHTML;
+        //Find actual opertaion 
+        let actualOperation = operations.find(operation => operation.value().includes(actualSymbol));
+        console.log('operacion actual a hacer ' + actualOperation)
+        //Make a calculation
+        let calculation = actualOperation.calc(lcd.values[0], lcd.values[1])
+        console.log('resultado del calculo ' + calculation)
+        //Clear actual values
+        lcd.values = [];
+        lcd.value = [];
 
-    }
-    if (lcd.value == "") {
-        return;
+        //Add new calc value
+        lcd.values.push(calculation)
+        
+        //Add to lcd
+        lcd.numbers.innerText = calculation;
+        lcd.symbol.innerText = "";
+
+        lcd.symbol.innerHTML = operationObject.value()
     } else {
-        //Add to number to values 
-        lcd.values.push(lcd.value.join(""))
-        //Clear lcd.value
-        lcd.value = []
+        //Add the operation symbol
+        lcd.symbol.innerHTML = operationObject.value()
+
+        if (lcd.value == "") {
+            return;
+        } else {
+            //Add number to values 
+            lcd.values.push(lcd.value.join(""))
+            //Clear lcd.value
+            lcd.value = []
+        }
     }
 
     console.log(lcd.values, lcd.value)
     console.log(typeof lcd.value)
 }
     
-function addListeners() {
-    for (let number of numbers) {
+function handleListeners(type) {
+    if (type == 'add'){
+        for (let number of numbers) {
         number.addListener()
+        }
+        for (let operation of operations) {
+            operation.addListener()
+        }
+        dot.addListener();
+        clear.addListener()
+    } else if (type == 'remove') {
+        for (let number of numbers) {
+            number.removeListener()
+        }
+        for (let operation of operations) {
+            operation.removeListener()
+        }
+        dot.removeListener();
+        clear.removeListener();
     }
-    for (let operation of operations) {
-        operation.addListener()
-    }
-    dot.addListener();
 }
 
+//Delete values
+function handleClear() {
+    lcd.numbers.innerText = '0';
+    lcd.value = [];
+    lcd.values = [];
+    lcd.total = [];
+    lcd.symbol.innerText = '';
+}
+//On-Off
+let on = false;
+let onOffButton = document.querySelector('#button__on-off')
 
+function onOff() {
+    if (on == false) {
+        on = true;
+        lcd.numbers.innerText = '0'
+        handleListeners('add');
+    } else {
+        on = false;
+        handleClear()
+        lcd.numbers.innerText = 'OFF'
+        handleListeners('remove');
+    }
+}
 window.onload = () => {
     //Purple calc
-    addListeners();
+    if (on == false) {
+        lcd.numbers.innerText = 'OFF'
+    }
+    onOffButton.addEventListener('click', onOff)
     
 }
