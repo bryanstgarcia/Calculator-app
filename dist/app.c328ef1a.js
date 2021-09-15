@@ -381,9 +381,10 @@ function addNumberLCD(event) {
   var numberValue;
 
   if (event.target.id === "button__dot" || event.target.id === "dot") {
-    if (lcd.value.join("").includes(".")) return;
+    if (lcd.value.join("").includes(".")) return; // Return if "." exist in lcd.value
 
     if (lcd.value.length > 0) {
+      // Add "." to lcd
       numberValue = ".";
     } else {
       numberValue = "0.";
@@ -415,16 +416,20 @@ function handleOperation(event) {
 
     var actualOperation = operations.find(function (operation) {
       return operation.value().includes(actualSymbol);
-    });
-    console.log('operacion actual a hacer ' + actualOperation); //Make a calculation
+    }); //Make a calculation
 
-    var calculation = actualOperation.calc(lcd.values[0], lcd.values[1]);
-    console.log('resultado del calculo ' + calculation); //Clear actual values
+    console.log('Actual calculation values');
+    console.log(lcd.values[0]);
+    console.log(lcd.values[1]);
+    var calculation = actualOperation.calc(lcd.values[0], lcd.values[1]); //Clear actual values
 
     lcd.values = [];
     lcd.value = []; //Add new calc value
 
-    lcd.values.push(calculation); //Add to lcd
+    lcd.values.push(calculation);
+    console.log('Values before calculation');
+    console.log(lcd.values[0]);
+    console.log(lcd.values[1]); //Add to lcd
 
     lcd.numbers.innerText = calculation;
     lcd.symbol.innerText = "";
@@ -577,7 +582,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56055" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63118" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
