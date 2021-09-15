@@ -259,8 +259,8 @@ function addNumberLCD(event) {
     //Add a number to the lcd
     let numberValue;
     if (event.target.id === "button__dot" || event.target.id === "dot") {
-        if (lcd.value.join("").includes(".")) return;
-        if (lcd.value.length > 0 ) {
+        if (lcd.value.join("").includes(".")) return;  // Return if "." exist in lcd.value
+        if (lcd.value.length > 0 ) {  // Add "." to lcd
             numberValue = "."
         } else {
             numberValue = "0."
@@ -288,38 +288,42 @@ function handleOperation(event) {
         let actualSymbol = lcd.symbol.innerHTML;
         //Find actual opertaion 
         let actualOperation = operations.find(operation => operation.value().includes(actualSymbol));
-        console.log('operacion actual a hacer ' + actualOperation)
         //Make a calculation
+        console.log('Actual calculation values')
+        console.log(lcd.values[0])
+        console.log(lcd.values[1])
         let calculation = actualOperation.calc(lcd.values[0], lcd.values[1])
-        console.log('resultado del calculo ' + calculation)
         //Clear actual values
         lcd.values = [];
         lcd.value = [];
-
-        //Add new calc value
-        lcd.values.push(calculation)
         
+        //Add new calc value
+        lcd.values.push(calculation);
+        
+        console.log('Values before calculation')
+        console.log(lcd.values[0])
+        console.log(lcd.values[1])
         //Add to lcd
         lcd.numbers.innerText = calculation;
         lcd.symbol.innerText = "";
 
-        lcd.symbol.innerHTML = operationObject.value()
+        lcd.symbol.innerHTML = operationObject.value();
     } else {
         //Add the operation symbol
-        lcd.symbol.innerHTML = operationObject.value()
+        lcd.symbol.innerHTML = operationObject.value();
 
         if (lcd.value == "") {
             return;
         } else {
             //Add number to values 
-            lcd.values.push(lcd.value.join(""))
+            lcd.values.push(lcd.value.join(""));
             //Clear lcd.value
-            lcd.value = []
+            lcd.value = [];
         }
     }
 
-    console.log(lcd.values, lcd.value)
-    console.log(typeof lcd.value)
+    console.log(lcd.values, lcd.value);
+    console.log(typeof lcd.value);
 }
     
 function handleListeners(type) {
